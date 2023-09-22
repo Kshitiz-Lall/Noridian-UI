@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Layout } from "antd";
+import AppHeader from "./Components/Layouts/AppHeader";
+import AppFooter from "./Components/Layouts/AppFooter";
+import Dashboard from "./Components/Features/Dashboard";
+import "./App.css"; // Import the CSS file
 
-function App() {
+const { Header, Content, Footer } = Layout;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Layout className="layout">
+        <Content>
+          <Header
+            style={{
+              backgroundColor: "white",
+              position: "sticky",
+              top: 0,
+              zIndex: 1,
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <AppHeader />
+          </Header>
+        </Content>
+        <Content className="content">
+          <Dashboard />
+        </Content>
+        <Footer className="footer">
+          <AppFooter />
+        </Footer>
+      </Layout>
     </div>
   );
-}
+};
 
 export default App;
